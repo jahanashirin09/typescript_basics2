@@ -18,12 +18,39 @@ console.log("typscript is here")
 // hitesh.city="KFHBAE"
 
 class user{
+    private coursecount=1
     readonly city:string="jaipur"
     constructor(
         public email:string,
         public name:string,
         private userid:string
     ){}
+    private deletetoken(){
+        console.log("token deleted")
+    }
+    get getappleemail():string{
+        return`apple ${this.email}`
+    }
+    get coursecounts():number{
+        return this.coursecount
+    }
+    //mentioning types in setters gives error
+    set coursecounts(coursenum){
+        if(coursenum<=1){
+            throw new Error("course count should be more than 1")
+        }
+        this.coursecount=coursenum
+
+    }
 }
+class subuser extends user{
+    isfamily:boolean=true
+    changecoursecount(){
+        this.coursecounts=4
+    }
+}
+
+//inheritance property in class 
+//protected key enable the accessing of its value within the class and  in subclasses also
 const hitesh=new user("hsvhv","fhvuyv","fegye")
 //hitesh.name
